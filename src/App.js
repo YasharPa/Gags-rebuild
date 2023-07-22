@@ -1,5 +1,9 @@
+import { useState } from "react";
+import GagListItem from "./components/GagListItem";
 function App() {
-  return <div>Hey</div>;
+  const [gags, setGags] = useState([]);
+
+  return <GagListItem />;
 }
 
 export default App;

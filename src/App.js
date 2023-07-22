@@ -11,9 +11,14 @@ function App() {
     setGags(updatedGags);
   };
 
+  const deleteGag = (id) => {
+    const updatedGags = gags.filter((gag) => gag.id !== id);
+    setGags(updatedGags);
+  };
+
   return (
     <div>
-      <GagList gags={gags} />
+      <GagList onDelete={deleteGag} gags={gags} />
       <GagItemCreate onCreate={createGag} />
     </div>
   );

@@ -11,7 +11,17 @@ function App() {
     if (contant !== "") setGags(updatedGags);
   };
 
-  const deleteGag = (id) => {
+  const editGagById = (id, newContant) => {
+    const updatedGag = gags.map((gag) => {
+      if (gag.id === id) {
+        return { ...gag, contant: newContant };
+      }
+      return gag;
+    });
+    setGags(updatedGag);
+  };
+
+  const deleteGagById = (id) => {
     const updatedGags = gags.filter((gag) => gag.id !== id);
     setGags(updatedGags);
   };
@@ -19,7 +29,7 @@ function App() {
   return (
     <div>
       <h1>Nav Bar</h1>
-      <GagList onDelete={deleteGag} gags={gags} />
+      <GagList onEdit={editGagById} onDelete={deleteGagById} gags={gags} />
       <GagItemCreate onCreate={createGag} />
     </div>
   );

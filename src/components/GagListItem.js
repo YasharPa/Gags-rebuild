@@ -36,7 +36,7 @@ function GagListItem({ gag, onDelete, onEdit }) {
           handleEditGag();
         }}
       />
-      <img src="https://api.imgflip.com/get_memes" alt="memes" />
+      <img src={gag.url} alt="memes" />
       <div>{contant}</div>
     </div>
   );

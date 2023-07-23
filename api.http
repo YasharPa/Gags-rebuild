@@ -1,0 +1,20 @@
+
+GET http://localhost:3001/gags HTTP/1.1
+Content-Type: application/json
+
+
+
+# # create a new Gag
+# POST http://localhost:3001/gags HTTP/1.1
+# Content-Type: application/json
+
+# {
+#     "id": 1231231231,
+#     "name":"Yashar Pashaiy",
+#     "url": "https://i.imgflip.com/30b1gx.jpg",
+#     "width": 1200,
+#     "height": 1200,
+#     "box_count": 2,
+#     "captions": 0
+# } 
+PUT  http://localhost:3001/gags HTTP/1.1

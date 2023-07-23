@@ -2,10 +2,10 @@ import { useState } from "react";
 
 function GagItemCreate({ onCreate }) {
   const [contant, setContant] = useState("");
-
   const handleChange = (event) => {
     setContant(event.target.value);
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     onCreate(contant);

@@ -12,7 +12,7 @@ function GagItemCreate({ onCreate }) {
     setContant("");
   };
   return (
-    <div>
+    <div className="gag-create">
       <form onSubmit={handleSubmit}>
         <label>Create Gag </label>
         <input value={contant} onChange={handleChange} />

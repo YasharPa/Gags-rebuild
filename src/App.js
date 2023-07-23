@@ -8,7 +8,7 @@ function App() {
   const createGag = (contant) => {
     const randomId = Math.floor(Math.random() * 1000);
     const updatedGags = [...gags, { id: randomId, contant }];
-    setGags(updatedGags);
+    if (contant !== "") setGags(updatedGags);
   };
 
   const deleteGag = (id) => {
@@ -18,6 +18,7 @@ function App() {
 
   return (
     <div>
+      <h1>Nav Bar</h1>
       <GagList onDelete={deleteGag} gags={gags} />
       <GagItemCreate onCreate={createGag} />
     </div>

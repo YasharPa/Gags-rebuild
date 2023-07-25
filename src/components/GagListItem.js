@@ -1,12 +1,14 @@
 import { GoTrash, GoPencil } from "react-icons/go";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import GagItemEdit from "./GagItemEdit";
+import GagsContext from "../context/gags";
 
-function GagListItem({ gag, onDelete, onEdit }) {
+function GagListItem({ gag }) {
+  const { deleteGagById, editGagById } = useContext(GagsContext);
   const [showEdit, setShowEdit] = useState(false);
 
   const handleDeleteGag = () => {
-    onDelete(gag.id);
+    deleteGagById(gag.id);
   };
 
   const handleEditGag = () => {
@@ -15,8 +17,9 @@ function GagListItem({ gag, onDelete, onEdit }) {
 
   const handleSubmit = (id, newContant) => {
     setShowEdit(false);
-    onEdit(id, newContant);
+    editGagById(id, newContant);
   };
+
   let contant = <h3>{gag.contant}</h3>;
   if (showEdit) {
     contant = <GagItemEdit onSubmit={handleSubmit} gag={gag} />;
@@ -36,7 +39,6 @@ function GagListItem({ gag, onDelete, onEdit }) {
           handleEditGag();
         }}
       />
-      <img src={gag.url} alt="memes" />
       <div>{contant}</div>
     </div>
   );

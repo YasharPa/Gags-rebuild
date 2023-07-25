@@ -12,3 +12,8 @@
   justify-content: flex-end;
   cursor: pointer;
 }
+
+.app {
+  margin-bottom: 215px;
+  position: relative;
+}

@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import GagsContext from "../context/gags";
 
-function GagItemCreate({ onCreate }) {
+function GagItemCreate() {
+  const { createGag } = useContext(GagsContext);
+
   const [contant, setContant] = useState("");
   const handleChange = (event) => {
     setContant(event.target.value);
@@ -8,7 +11,7 @@ function GagItemCreate({ onCreate }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onCreate(contant);
+    createGag(contant);
     setContant("");
   };
   return (

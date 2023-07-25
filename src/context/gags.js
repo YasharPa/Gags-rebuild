@@ -3,8 +3,8 @@ import axios from "axios";
 
 const GagsContext = createContext();
 
-function Provider({ Children }) {
-  const [gags, setGags] = useState([]);
+function Provider({ children }) {
+  const [gags, setGags] = useState([{ id: 1231, content: "yashar" }]);
 
   const fetchGags = useCallback(async () => {
     const response = await axios.get("http://localhost:3001/gags");
@@ -40,14 +40,14 @@ function Provider({ Children }) {
   const valuesToShare = {
     gags,
     fetchGags,
+    deleteGagById,
     createGag,
     editGagById,
-    deleteGagById,
   };
 
   return (
     <GagsContext.Provider value={valuesToShare}>
-      {Children}
+      {children}
     </GagsContext.Provider>
   );
 }

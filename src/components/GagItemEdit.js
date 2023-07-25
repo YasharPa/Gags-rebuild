@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import GagsContext from "../context/gags";
 
 function GagItemEdit({ gag, onSubmit }) {
   const [newContant, setNewContant] = useState(gag.contant);
+  const { editGagById } = useContext(GagsContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    onSubmit(gag.id, newContant);
+    onSubmit();
+    editGagById(gag.id, newContant);
   };
 
   const handleChangeContant = (event) => {

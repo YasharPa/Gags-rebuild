@@ -13,8 +13,8 @@ function App() {
   return (
     <div className="app">
       <h1>Gag List</h1>
-      <GagList />
       <GagItemCreate />
+      <GagList />
     </div>
   );
 }

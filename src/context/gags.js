@@ -22,14 +22,17 @@ function Provider({ children }) {
   };
 
   const editGagById = async (id, newContant) => {
-    const response = await axios.put(`http://localhost:3001/gags/${id}`);
-    const updatedGag = gags.map((gag) => {
+    const response = await axios.put(`http://localhost:3001/gags/${id}`, {
+      contant: newContant,
+    });
+
+    const updatedGags = gags.map((gag) => {
       if (gag.id === id) {
-        return { ...gag, content: response.data };
+        return { ...gag, ...response.data };
       }
       return gag;
     });
-    setGags(updatedGag);
+    setGags(updatedGags);
   };
 
   const deleteGagById = async (id) => {

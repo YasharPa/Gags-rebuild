@@ -15,9 +15,8 @@ function GagListItem({ gag }) {
     setShowEdit(!showEdit);
   };
 
-  const handleSubmit = (id, newContant) => {
+  const handleSubmit = () => {
     setShowEdit(false);
-    editGagById(id, newContant);
   };
 
   let contant = <h3>{gag.contant}</h3>;

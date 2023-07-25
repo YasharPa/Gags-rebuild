@@ -25,7 +25,7 @@ function Provider({ children }) {
     const response = await axios.put(`http://localhost:3001/gags/${id}`);
     const updatedGag = gags.map((gag) => {
       if (gag.id === id) {
-        return [...gag, response.data];
+        return { ...gag, content: response.data };
       }
       return gag;
     });
@@ -33,8 +33,9 @@ function Provider({ children }) {
   };
 
   const deleteGagById = async (id) => {
-    const response = await axios.delete(`http://localhost:3001/gags/${id}`);
-    setGags(response.data);
+    await axios.delete(`http://localhost:3001/gags/${id}`);
+    const updatedGags = gags.filter((gag) => gag.id !== id);
+    setGags(updatedGags);
   };
 
   const valuesToShare = {

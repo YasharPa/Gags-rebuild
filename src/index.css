@@ -1,11 +1,11 @@
 .gag-item {
   width: 300px;
   height: auto;
-  border-radius: 4px;
+  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #6e91d6;
+  background-color: #fff;
   overflow: hidden;
-  margin: 1em;
+  margin: 10px;
 }
 .icon {
   display: flex;
@@ -16,4 +16,18 @@
 .app {
   margin-bottom: 215px;
   position: relative;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+.gag-contant {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #6e91d6;
+  color: #fff;
 }

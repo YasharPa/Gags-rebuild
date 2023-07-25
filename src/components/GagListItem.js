@@ -39,7 +39,7 @@ function GagListItem({ gag }) {
           handleEditGag();
         }}
       />
-      <div>{contant}</div>
+      <div className="gag-contant">{contant}</div>
     </div>
   );
 }

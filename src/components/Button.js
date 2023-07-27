@@ -1,3 +1,5 @@
+import classNames from "classnames";
+
 function Button({
   children,
   primary,
@@ -9,20 +11,25 @@ function Button({
   rounded,
   ...rest
 }) {
-  let classes = {
+  let classes = classNames(rest.className, "button", {
     "primary-button": primary,
-    "secondary-button": primary,
-    "success-button": primary,
-    "warning-button": primary,
-    "danger-button": primary,
+    "secondary-button": secondary,
+    "success-button": success,
+    "warning-button": warning,
+    "danger-button": danger,
+    "rounded-button": rounded,
     "outline-primary-button": primary && outline,
     "outline-secondary-button": secondary && outline,
     "outline-success-button": success && outline,
     "outline-warning-button": warning && outline,
     "outline-danger-button": danger && outline,
-  };
+  });
 
-  return <button {...rest}>{children}</button>;
+  return (
+    <button {...rest} className={classes}>
+      {children}
+    </button>
+  );
 }
 
 Button.propTypes = {

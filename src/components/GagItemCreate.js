@@ -17,10 +17,12 @@ function GagItemCreate() {
   };
   return (
     <div className="gag-create">
-      <form onSubmit={handleSubmit}>
+      <form className="form gag-create" onSubmit={handleSubmit}>
         <label>Create Gag </label>
         <input value={contant} onChange={handleChange} />
-        <Button className="primary-button">Create</Button>
+        <Button primary rounded>
+          Create
+        </Button>
       </form>
     </div>
   );

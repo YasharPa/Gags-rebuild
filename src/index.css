@@ -81,3 +81,54 @@ Button styling
 .rounded-button {
   border-radius: 999px;
 }
+
+.modal-closed {
+  /* Positioning */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /* Background Color */
+  background-color: #d1d5db;
+
+  /* Opacity */
+  opacity: 0.8;
+}
+
+.modal-opend {
+  /* Positioning */
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  bottom: 40px;
+  left: 40px;
+
+  /* Padding */
+  padding: 10px;
+
+  /* Background Color */
+  background-color: #fff;
+}
+.modal-children {
+  /* Flex Container */
+  display: flex;
+  flex-direction: column;
+
+  /* Justify Content */
+  justify-content: space-between;
+
+  /* Height */
+  height: 100%;
+}
+.action-bar {
+  /* Flex Container */
+  display: flex;
+
+  /* Justify Content */
+  justify-content: flex-end;
+}
+
+.navbar {
+}

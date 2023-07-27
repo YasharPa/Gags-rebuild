@@ -12,8 +12,10 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Gag List</h1>
-      <GagItemCreate />
+      <div className="navbar">
+        <h1>Gag List</h1>
+        <GagItemCreate />
+      </div>
       <GagList />
     </div>
   );

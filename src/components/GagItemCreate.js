@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import GagsContext from "../context/gags";
+import Button from "./Button";
 
 function GagItemCreate() {
   const { createGag } = useContext(GagsContext);
@@ -19,7 +20,7 @@ function GagItemCreate() {
       <form onSubmit={handleSubmit}>
         <label>Create Gag </label>
         <input value={contant} onChange={handleChange} />
-        <button>Create</button>
+        <Button className="primary-button">Create</Button>
       </form>
     </div>
   );

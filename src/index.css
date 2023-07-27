@@ -31,3 +31,23 @@ body {
   background-color: #6e91d6;
   color: #fff;
 }
+
+/* 
+Button styling
+037644444
+
+*/
+.primary-button {
+  background-color: #4853cb;
+  border-color: #444fd0;
+}
+.secondary-button {
+  background-color: #8170d7;
+  border-color: #7560de;
+}
+.warning-button {
+  background-color: #c0cb48;
+}
+.danger-button {
+  background-color: #cb4848;
+}

@@ -4,7 +4,7 @@ import GagItemEdit from "./GagItemEdit";
 import GagsContext from "../context/gags";
 
 function GagListItem({ gag }) {
-  const { deleteGagById, editGagById } = useContext(GagsContext);
+  const { deleteGagById } = useContext(GagsContext);
   const [showEdit, setShowEdit] = useState(false);
 
   const handleDeleteGag = () => {

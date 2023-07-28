@@ -19,30 +19,47 @@ function GagItemCreate() {
   const handleClose = () => {
     setShowModal(false);
   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleCreate = () => {
     createGag(contant);
     setContant("");
   };
+
   const actionBar = (
     <div>
-      <Button primary rounded onClick={handleClose}></Button>
+      <Button
+        primary
+        rounded
+        onClick={() => {
+          handleClose();
+          handleCreate();
+        }}
+      >
+        Accept
+      </Button>
     </div>
   );
   const modal = (
     <Modal onClose={handleClose} actionBar={actionBar}>
-      <label>Create Gag </label>
-      <input value={contant} onChange={handleChange} />
+      <div>
+        <h1>Create Gag </h1>
+        Name: <input value={contant} onChange={handleChange} />
+      </div>
     </Modal>
   );
   return (
     <div className="gag-create">
-      <form className="form gag-create" onSubmit={handleSubmit}>
-        <Button onClick={handleClick} primary rounded>
-          Create
-        </Button>
+      <Button onClick={handleClick} primary rounded>
+        Create
+      </Button>
+      <form
+        className="form gag-create"
+        onSubmit={(event) => {
+          event.preventDefault();
+          handleCreate();
+        }}
+      >
+        {showModal && modal}
       </form>
-      {showModal && modal}
     </div>
   );
 }

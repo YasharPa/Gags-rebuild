@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import GagsContext from "../context/gags";
+import Button from "./Button";
 
 function GagItemEdit({ gag, onSubmit }) {
   const [newContant, setNewContant] = useState(gag.contant);
@@ -24,7 +25,9 @@ function GagItemEdit({ gag, onSubmit }) {
         value={newContant}
         onChange={handleChangeContant}
       ></input>
-      <button>Accept</button>
+      <Button primary rounded>
+        Accept
+      </Button>
     </form>
   );
 }

@@ -4,7 +4,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #fff;
+  background-color: #d8d3d375;
 }
 
 .gag-item {
@@ -79,7 +79,7 @@ Button styling
   color: #fff;
 }
 .rounded-button {
-  border-radius: 999px;
+  border-radius: 290486px;
 }
 
 .modal-closed {
@@ -100,10 +100,10 @@ Button styling
 .modal-opend {
   /* Positioning */
   position: fixed;
-  top: 40px;
-  right: 40px;
-  bottom: 40px;
-  left: 40px;
+  top: 10%;
+  right: 20%;
+  bottom: 10%;
+  left: 20%;
 
   /* Padding */
   padding: 10px;
@@ -131,4 +131,6 @@ Button styling
 }
 
 .navbar {
+  display: flex;
+  justify-content: space-between;
 }

@@ -8,6 +8,7 @@ body {
 }
 .gag-item {
   display: flex;
+  flex-direction: column;
   width: 700px;
   height: auto;
   border-radius: 8px;
@@ -23,7 +24,7 @@ body {
 }
 
 .gag-contant {
-  display: flexbox;
+  display: grid;
   align-items: center;
   padding: 10px;
   background-color: #fff;
@@ -42,6 +43,7 @@ Button styling
   /* Flex */
   display: flex;
   align-items: center;
+  margin: 7px;
 
   /* Padding */
   padding-left: 0.75rem;
@@ -157,9 +159,9 @@ Button styling
     transform: translateX(-100%);
   }
 }
-.inner-skeleton-shimmer {
-  animation: shimmer 2s infinite;
 
+.inner-skeleton {
+  animation: shimmer 3s infinite;
   position: absolute;
 
   top: 0;
@@ -170,4 +172,15 @@ Button styling
   transform: translateX(-100%);
 
   background: linear-gradient(to right, #e5e7eb, #ffffff, #e5e7eb);
+}
+
+.gag-list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.active-skeleton {
+  height: 10px;
+  width: 100%;
 }

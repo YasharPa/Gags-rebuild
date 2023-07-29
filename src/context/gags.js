@@ -15,6 +15,7 @@ function Provider({ children }) {
     const response = await axios.post("http://localhost:3001/gags", {
       contant,
       url,
+      likes: 0,
     });
     if (contant !== "" || url !== "") {
       const updatedGags = [...gags, response.data];

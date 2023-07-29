@@ -134,6 +134,7 @@ Button styling
 .navbar {
   display: flex;
   justify-content: space-between;
+  padding: 10px;
 }
 
 .gag-image {

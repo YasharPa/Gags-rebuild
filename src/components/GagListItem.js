@@ -19,7 +19,14 @@ function GagListItem({ gag }) {
     setShowEdit(false);
   };
 
-  let contant = <h3>{gag.contant}</h3>;
+  let contant = (
+    <>
+      <div>
+        <h3>{gag.contant}</h3>
+      </div>
+      <img alt="Gags" src={gag.url} className="gag-image" />
+    </>
+  );
   if (showEdit) {
     contant = <GagItemEdit onSubmit={handleSubmit} gag={gag} />;
   }

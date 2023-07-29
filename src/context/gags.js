@@ -11,11 +11,12 @@ function Provider({ children }) {
     setGags(response.data);
   }, []);
 
-  const createGag = async (contant) => {
+  const createGag = async (contant, url) => {
     const response = await axios.post("http://localhost:3001/gags", {
       contant,
+      url,
     });
-    if (contant !== "") {
+    if (contant || url !== "") {
       const updatedGags = [...gags, response.data];
       setGags(updatedGags);
     }

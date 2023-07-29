@@ -5,7 +5,6 @@ import GagList from "./components/GagList";
 
 function App() {
   const { fetchGags } = useContext(GagsContext);
-
   useEffect(() => {
     fetchGags();
   }, [fetchGags]);

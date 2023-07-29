@@ -9,7 +9,7 @@ function GagList() {
     return <GagListItem key={gag.id} gag={gag} />;
   });
 
-  return <div>{rendredGags}</div>;
+  return <div className="gag-list">{rendredGags}</div>;
 }
 
 export default GagList;

@@ -6,9 +6,9 @@ body {
   padding: 0;
   background-color: #d8d3d375;
 }
-
 .gag-item {
-  width: 300px;
+  display: flex;
+  width: 700px;
   height: auto;
   border-radius: 8px;
   box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.1);
@@ -23,7 +23,7 @@ body {
 }
 
 .gag-contant {
-  display: flex;
+  display: flexbox;
   align-items: center;
   padding: 10px;
   background-color: #fff;
@@ -104,7 +104,6 @@ Button styling
   right: 20%;
   bottom: 10%;
   left: 20%;
-
   /* Padding */
   padding: 10px;
 
@@ -133,4 +132,42 @@ Button styling
 .navbar {
   display: flex;
   justify-content: space-between;
+}
+
+.gag-image {
+  height: auto;
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.outer-skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: #e5e7eb;
+  border-radius: 0.375rem;
+  margin-bottom: 0.625rem;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.inner-skeleton-shimmer {
+  animation: shimmer 2s infinite;
+
+  position: absolute;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  transform: translateX(-100%);
+
+  background: linear-gradient(to right, #e5e7eb, #ffffff, #e5e7eb);
 }

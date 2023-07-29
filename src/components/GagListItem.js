@@ -1,11 +1,11 @@
-import { GoTrash, GoPencil } from "react-icons/go";
+import { GoTrash, GoPencil, GoThumbsup } from "react-icons/go";
 import { useContext, useState, useEffect } from "react";
 import GagItemEdit from "./GagItemEdit";
 import GagsContext from "../context/gags";
 import Skeleton from "./Skeleton";
 
 function GagListItem({ gag }) {
-  const { deleteGagById } = useContext(GagsContext);
+  const { deleteGagById, addLikeToGagById } = useContext(GagsContext);
   const [showEdit, setShowEdit] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -19,6 +19,10 @@ function GagListItem({ gag }) {
 
   const handleSubmit = () => {
     setShowEdit(false);
+  };
+
+  const handleAddLike = () => {
+    addLikeToGagById(gag, gag.likes);
   };
 
   useEffect(() => {
@@ -39,7 +43,7 @@ function GagListItem({ gag }) {
 
   return (
     <div className="gag-item">
-      <label>
+      <label className="gag-icons">
         <GoTrash
           className="trashcan-icon"
           onClick={() => {
@@ -59,6 +63,10 @@ function GagListItem({ gag }) {
       ) : (
         <div className="gag-contant">{contant}</div>
       )}
+      <label>
+        {gag.likes}
+        <GoThumbsup onClick={handleAddLike} />
+      </label>
     </div>
   );
 }

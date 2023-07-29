@@ -16,10 +16,27 @@ function Provider({ children }) {
       contant,
       url,
     });
-    if (contant || url !== "") {
+    if (contant !== "" || url !== "") {
       const updatedGags = [...gags, response.data];
       setGags(updatedGags);
     }
+  };
+  const addLikeToGagById = async (lastGag, updatedLikes) => {
+    const response = await axios.put(
+      `http://localhost:3001/gags/${lastGag.id}`,
+      {
+        ...lastGag,
+        likes: updatedLikes + 1,
+      }
+    );
+    const updateGags = gags.map((gag) => {
+      if (gag.id === lastGag.id) {
+        return { ...gag, likes: response.data.likes };
+      }
+      return gag;
+    });
+
+    setGags(updateGags);
   };
 
   const editGagById = async (id, newContant) => {
@@ -48,6 +65,7 @@ function Provider({ children }) {
     deleteGagById,
     createGag,
     editGagById,
+    addLikeToGagById,
   };
 
   return (

@@ -1,7 +1,7 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import GagsContext from "../context/gags";
 import GagListItem from "./GagListItem";
-
+import Pagination from "./Pagination";
 function GagList() {
   const { gags } = useContext(GagsContext);
 

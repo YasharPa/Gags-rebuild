@@ -9,7 +9,7 @@ function GagItemEdit({ gag, onSubmit }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     onSubmit();
-    editGagById(gag.id, newContant);
+    editGagById(gag, newContant);
   };
 
   const handleChangeContant = (event) => {

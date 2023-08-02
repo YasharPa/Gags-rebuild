@@ -195,3 +195,12 @@ body {
 .create-modal label {
   margin-bottom: 10px;
 }
+.reaction-bar {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  border-top: 2px solid #d1d5db;
+}
+.reaction-bar > * {
+  margin-right: 2px;
+}

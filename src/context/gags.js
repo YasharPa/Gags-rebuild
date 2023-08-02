@@ -40,13 +40,14 @@ function Provider({ children }) {
     setGags(updateGags);
   };
 
-  const editGagById = async (id, newContant) => {
-    const response = await axios.put(`http://localhost:3001/gags/${id}`, {
-      contant: newContant,
-    });
+  const editGagById = async (lastGag, newContant) => {
+    const response = await axios.put(
+      `http://localhost:3001/gags/${lastGag.id}`,
+      { ...lastGag, contant: newContant }
+    );
 
     const updatedGags = gags.map((gag) => {
-      if (gag.id === id) {
+      if (gag.id === lastGag.id) {
         return { ...gag, ...response.data };
       }
       return gag;

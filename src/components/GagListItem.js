@@ -1,4 +1,4 @@
-import { GoTrash, GoPencil, GoThumbsup } from "react-icons/go";
+import { GoTrash, GoPencil, GoThumbsup, GoComment } from "react-icons/go";
 import { useContext, useState, useEffect } from "react";
 import GagItemEdit from "./GagItemEdit";
 import GagsContext from "../context/gags";
@@ -61,12 +61,15 @@ function GagListItem({ gag }) {
       {isLoading ? (
         <Skeleton times={3} className="active-skeleton" />
       ) : (
-        <div className="gag-contant">{contant}</div>
+        <div>
+          <div className="gag-contant">{contant}</div>
+          <label className="reaction-bar">
+            <span>{gag.likes}</span>
+            <GoThumbsup onClick={handleAddLike} />
+            <GoComment />
+          </label>
+        </div>
       )}
-      <label>
-        {gag.likes}
-        <GoThumbsup onClick={handleAddLike} />
-      </label>
     </div>
   );
 }

@@ -54,31 +54,28 @@ Button styling
   /* Border */
   border-width: 1px;
   border-style: solid;
+
+  color: #fff;
 }
 .primary-button {
   background-color: #5677b8;
   border-color: #5677b8;
-  color: #fff;
 }
 .secondary-button {
   background-color: #8170d7;
   border-color: #8170d7;
-  color: #fff;
 }
 .success-button {
   background-color: #73c480;
   border-color: #73c480;
-  color: #fff;
 }
 .warning-button {
   background-color: #c0cb48;
   border-color: #c0cb48;
-  color: #fff;
 }
 .danger-button {
   background-color: #cb4848;
   border-color: #cb4848;
-  color: #fff;
 }
 .rounded-button {
   border-radius: 290486px;
@@ -189,4 +186,13 @@ Button styling
 .gag-icons {
   display: flex;
   margin: 7px;
+}
+
+.create-modal {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-modal label {
+  margin-bottom: 10px;
 }

@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import GagsContext from "../context/gags";
 import Button from "./Button";
 import Modal from "./Modal";
@@ -8,6 +8,7 @@ function GagItemCreate() {
   const [contant, setContant] = useState("");
   const [url, setUrl] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const nameInputRef = useRef();
 
   const handleContantChange = (event) => {
     setContant(event.target.value);
@@ -29,6 +30,11 @@ function GagItemCreate() {
     setUrl("");
   };
 
+  useEffect(() => {
+    if (showModal) {
+      nameInputRef.current.focus();
+    }
+  }, [showModal]);
   const actionBar = (
     <div>
       <Button
@@ -45,10 +51,15 @@ function GagItemCreate() {
   );
   const modal = (
     <Modal onClose={handleClose} actionBar={actionBar}>
-      <div>
+      <div className="create-modal">
         <h1>Create Gag </h1>
         <label>
-          Name: <input value={contant} onChange={handleContantChange} />
+          Name:{" "}
+          <input
+            ref={nameInputRef}
+            value={contant}
+            onChange={handleContantChange}
+          />
         </label>
         <label>
           Image Link: <input value={url} onChange={handleUrlChange} />

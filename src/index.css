@@ -32,50 +32,49 @@ body {
 }
 
 .gag-create {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
 }
-/* 
-Button styling
-*/
+
 .button {
-  /* Flex */
   display: flex;
   align-items: center;
   margin: 7px;
 
-  /* Padding */
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   padding-top: 0.375rem;
   padding-bottom: 0.375rem;
 
-  /* Border */
   border-width: 1px;
   border-style: solid;
 
   color: #fff;
+
+  --primary-bg: #5677b8;
+  --secondary-bg: #8170d7;
+  --success-bg: #73c480;
+  --warning-bg: #c0cb48;
+  --danger-bg: #cb4848;
 }
 .primary-button {
-  background-color: #5677b8;
-  border-color: #5677b8;
+  background-color: var(--primary-bg);
+  border-color: var(--primary-bg);
 }
 .secondary-button {
-  background-color: #8170d7;
-  border-color: #8170d7;
+  background-color: var(--secondary-bg);
+  border-color: var(--secondary-bg);
 }
 .success-button {
-  background-color: #73c480;
-  border-color: #73c480;
+  background-color: var(--success-bg);
+  border-color: var(--success-bg);
 }
 .warning-button {
-  background-color: #c0cb48;
-  border-color: #c0cb48;
+  background-color: var(--warning-bg);
+  border-color: var(--warning-bg);
 }
 .danger-button {
-  background-color: #cb4848;
-  border-color: #cb4848;
+  background-color: var(--danger-bg);
+  border-color: var(--danger-bg);
 }
 .rounded-button {
   border-radius: 290486px;
@@ -100,12 +99,12 @@ Button styling
   /* Positioning */
   position: fixed;
   top: 10%;
-  right: 20%;
-  bottom: 10%;
-  left: 20%;
+  right: 25%;
+  bottom: 25%;
+  left: 25%;
   /* Padding */
   padding: 10px;
-
+  border-radius: 8px;
   /* Background Color */
   background-color: #fff;
 }
@@ -189,8 +188,8 @@ Button styling
 }
 
 .create-modal {
-  display: flex;
-  flex-direction: column;
+  display: flexbox;
+  /* flex-direction:  column; */
 }
 
 .create-modal label {

@@ -204,3 +204,9 @@ body {
 .reaction-bar > * {
   margin-right: 2px;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

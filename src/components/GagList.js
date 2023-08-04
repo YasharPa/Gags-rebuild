@@ -1,7 +1,8 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import GagsContext from "../context/gags";
 import GagListItem from "./GagListItem";
 import Button from "./Button";
+import CommentItem from "./CommentItem";
 
 function GagList() {
   const { gags } = useContext(GagsContext);
@@ -22,12 +23,17 @@ function GagList() {
       setCurrentPage(currentPage - 1);
     }
   };
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [itemsPerPage]);
 
   const rendredGags = gags.map((gag) => {
-    return <GagListItem key={gag.id} gag={gag} />;
+    return (
+      <div>
+        <GagListItem key={gag.id} gag={gag} />
+        <div className="gag-comments">
+          {"comments:"}
+          <CommentItem gag={gag} />
+        </div>
+      </div>
+    );
   });
   const currentGags = rendredGags.slice(indexOfFirstGag, indexOfLastGag);
 
@@ -35,11 +41,11 @@ function GagList() {
     <div className="gag-list">
       {currentGags}
       <div className="pagination">
-        <Button secondary rounded onClick={handlePrevPage}>
+        <Button primary rounded onClick={handlePrevPage}>
           Prev
         </Button>
         {currentPage}
-        <Button secondary rounded onClick={handleNextPage}>
+        <Button primary rounded onClick={handleNextPage}>
           Next
         </Button>
       </div>

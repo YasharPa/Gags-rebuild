@@ -7,7 +7,6 @@ function Button({
   success,
   warning,
   danger,
-  outline,
   rounded,
   ...rest
 }) {
@@ -18,11 +17,6 @@ function Button({
     "warning-button": warning,
     "danger-button": danger,
     "rounded-button": rounded,
-    "outline-primary-button": primary && outline,
-    "outline-secondary-button": secondary && outline,
-    "outline-success-button": success && outline,
-    "outline-warning-button": warning && outline,
-    "outline-danger-button": danger && outline,
   });
 
   return (

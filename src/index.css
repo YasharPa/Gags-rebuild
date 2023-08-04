@@ -16,6 +16,7 @@ body {
   background-color: #fff;
   overflow: hidden;
   margin: 10px;
+  margin-bottom: 4px;
 }
 .icon {
   display: flex;
@@ -209,4 +210,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.gag-comments {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  overflow: hidden;
+  margin: 10px;
+  margin-top: 1px;
 }

@@ -3,6 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import GagItemEdit from "./GagItemEdit";
 import GagsContext from "../context/gags";
 import Skeleton from "./Skeleton";
+import CommentItem from "./CommentItem";
 
 function GagListItem({ gag }) {
   const { deleteGagById, addLikeToGagById } = useContext(GagsContext);

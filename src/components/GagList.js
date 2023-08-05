@@ -3,7 +3,6 @@ import GagsContext from "../context/gags";
 import GagListItem from "./GagListItem";
 import Button from "./Button";
 import CommentItem from "./CommentItem";
-
 function GagList() {
   const { gags } = useContext(GagsContext);
   const [currentPage, setCurrentPage] = useState(1);
@@ -11,7 +10,6 @@ function GagList() {
   const totalPages = Math.ceil(gags.length / itemsPerPage);
   const indexOfLastGag = currentPage * itemsPerPage;
   const indexOfFirstGag = indexOfLastGag - itemsPerPage;
-
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);

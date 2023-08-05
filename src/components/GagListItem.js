@@ -3,13 +3,12 @@ import { useContext, useState, useEffect } from "react";
 import GagItemEdit from "./GagItemEdit";
 import GagsContext from "../context/gags";
 import Skeleton from "./Skeleton";
-import CommentItem from "./CommentItem";
 
 function GagListItem({ gag }) {
   const { deleteGagById, addLikeToGagById } = useContext(GagsContext);
   const [showEdit, setShowEdit] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [showAddCoomment, setShowAddCoomment] = useState(false);
   const handleDeleteGag = () => {
     deleteGagById(gag.id);
   };
@@ -26,9 +25,14 @@ function GagListItem({ gag }) {
     addLikeToGagById(gag, gag.likes);
   };
 
+  const handleAddComment = () => {
+    setShowAddCoomment(!showAddCoomment);
+  };
+
   useEffect(() => {
     setTimeout(() => setIsLoading(false), 2000);
   }, [gag]);
+  let comment = "";
   let contant = (
     <>
       <div>
@@ -41,7 +45,14 @@ function GagListItem({ gag }) {
   if (showEdit) {
     contant = <GagItemEdit onSubmit={handleSubmit} gag={gag} />;
   }
-
+  if (showAddCoomment) {
+    comment = (
+      <div>
+        write a Comment:
+        <input></input>
+      </div>
+    );
+  }
   return (
     <div className="gag-item">
       <label className="gag-icons">
@@ -67,8 +78,13 @@ function GagListItem({ gag }) {
           <label className="reaction-bar">
             <span>{gag.likes}</span>
             <GoThumbsup onClick={handleAddLike} />
-            <GoComment />
+            <GoComment
+              onClick={() => {
+                handleAddComment();
+              }}
+            />
           </label>
+          {comment}
         </div>
       )}
     </div>

@@ -1,11 +1,19 @@
 function CommentItem({ gag }) {
   const { comments } = gag;
-  console.log(comments);
 
   const rendredComments = comments.map((comment) => {
-    return <div>{comment}</div>;
+    return (
+      <div className="comments-contant" key={gag.id}>
+        {comment}
+      </div>
+    );
   });
-  return <div className="commants">{rendredComments}</div>;
+  return (
+    <div className="gag-comments">
+      <div className="comments-title">Comments:</div>
+      <div>{rendredComments}</div>
+    </div>
+  );
 }
 
 export default CommentItem;

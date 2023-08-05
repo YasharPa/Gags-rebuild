@@ -200,6 +200,7 @@ body {
   display: flex;
   align-items: center;
   margin: 5px;
+  padding: 2px;
   border-top: 2px solid #d1d5db;
 }
 .reaction-bar > * {
@@ -223,4 +224,22 @@ body {
   overflow: hidden;
   margin: 10px;
   margin-top: 1px;
+}
+
+.comments-title {
+  margin: 5px;
+  padding: 2px;
+  border-bottom: 2px solid #d1d5db;
+}
+
+.comments-contant {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px 0;
+  background-color: #fff;
+  word-wrap: break-word;
+  height: auto;
 }

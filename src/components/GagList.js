@@ -26,12 +26,9 @@ function GagList() {
 
   const rendredGags = gags.map((gag) => {
     return (
-      <div>
-        <GagListItem key={gag.id} gag={gag} />
-        <div className="gag-comments">
-          {"comments:"}
-          <CommentItem gag={gag} />
-        </div>
+      <div key={gag.id}>
+        <GagListItem gag={gag} />
+        <CommentItem gag={gag} />
       </div>
     );
   });

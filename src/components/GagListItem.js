@@ -3,6 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import GagItemEdit from "./GagItemEdit";
 import GagsContext from "../context/gags";
 import Skeleton from "./Skeleton";
+import CommentItemCreate from "./CommentItemCreate";
 
 function GagListItem({ gag }) {
   const { deleteGagById, addLikeToGagById } = useContext(GagsContext);
@@ -46,12 +47,7 @@ function GagListItem({ gag }) {
     contant = <GagItemEdit onSubmit={handleSubmit} gag={gag} />;
   }
   if (showAddCoomment) {
-    comment = (
-      <div>
-        write a Comment:
-        <input></input>
-      </div>
-    );
+    comment = <CommentItemCreate gag={gag} />;
   }
   return (
     <div className="gag-item">

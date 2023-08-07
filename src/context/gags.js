@@ -60,17 +60,17 @@ function Provider({ children }) {
     const updatedGags = gags.filter((gag) => gag.id !== id);
     setGags(updatedGags);
   };
-  const CreateComment = async (lastGag, newCommnet) => {
+  const createComment = async (lastGag, newCommnet) => {
     const response = await axios.put(
       `http://localhost:3001/gags/${lastGag.id}`,
       {
         ...lastGag,
-        commnets: [...lastGag.commnets, newCommnet],
+        comments: [...lastGag.comments, newCommnet],
       }
     );
     const updateGags = gags.map((gag) => {
       if (gag.id === lastGag.id) {
-        return { ...gag, commnets: response.data.commnets };
+        return { ...gag, comments: response.data.comments };
       }
       return gag;
     });
@@ -85,7 +85,7 @@ function Provider({ children }) {
     createGag,
     editGagById,
     addLikeToGagById,
-    CreateComment,
+    createComment,
   };
 
   return (

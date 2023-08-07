@@ -236,10 +236,26 @@ body {
   display: flex;
   flex-direction: column;
   padding: 10px;
+  margin: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin: 10px 0;
   background-color: #fff;
   word-wrap: break-word;
   height: auto;
+}
+
+.no-comment {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+.comment-create {
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+  padding: 2px;
+  border-top: 1px solid #d1d5db;
 }

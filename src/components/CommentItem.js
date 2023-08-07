@@ -8,7 +8,9 @@ function CommentItem({ gag }) {
       </div>
     );
   });
-  const withoutCommentMesseage = "There is no comments, Be the first!";
+  const withoutCommentMesseage = (
+    <div className="no-comment">There is no comments, Be the first!</div>
+  );
   return (
     <div className="gag-comments">
       <div className="comments-title">Comments:</div>

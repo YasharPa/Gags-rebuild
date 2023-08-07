@@ -106,25 +106,18 @@ body {
   /* Padding */
   padding: 10px;
   border-radius: 8px;
-  /* Background Color */
   background-color: #fff;
 }
+
 .modal-children {
-  /* Flex Container */
   display: flex;
   flex-direction: column;
-
-  /* Justify Content */
   justify-content: space-between;
-
-  /* Height */
   height: 100%;
 }
-.action-bar {
-  /* Flex Container */
-  display: flex;
 
-  /* Justify Content */
+.action-bar {
+  display: flex;
   justify-content: flex-end;
 }
 
@@ -269,8 +262,8 @@ body {
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 14px; /* Adjust the font size as needed */
-  width: 600px; /* Adjust the height as needed */
+  font-size: 14px;
+  width: 600px;
 }
 .comment-input:focus {
   outline: none;

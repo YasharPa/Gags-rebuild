@@ -1,10 +1,15 @@
+import { GoTrash } from "react-icons/go";
+
 function CommentItem({ gag }) {
   const { comments } = gag;
 
   const rendredComments = comments.map((comment, index) => {
     return (
       <div className="comments-contant" key={gag.id + index}>
-        {comment}
+        <div className="comment-trash">
+          <GoTrash />
+        </div>
+        <div className="comment-text">{comment}</div>
       </div>
     );
   });

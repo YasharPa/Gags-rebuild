@@ -269,3 +269,7 @@ body {
   outline: none;
   border-color: #8170d7;
 }
+
+.comment-trash {
+  margin-left: 97%;
+}

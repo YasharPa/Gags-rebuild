@@ -78,6 +78,12 @@ function Provider({ children }) {
     setGags(updateGags);
   };
 
+  const deleteComment = async (id) => {
+    await axios.delete(`http://localhost:3001/gags/${id}`);
+    const updatedGags = gags.filter((gag) => id !== gag.id);
+    setGags(updatedGags);
+  };
+
   const valuesToShare = {
     gags,
     fetchGags,
@@ -86,6 +92,7 @@ function Provider({ children }) {
     editGagById,
     addLikeToGagById,
     createComment,
+    deleteComment,
   };
 
   return (

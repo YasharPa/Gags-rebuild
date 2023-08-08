@@ -17,6 +17,7 @@ function CommentItemCreate({ gag }) {
       inputRef.current.focus();
     }
   }, [showInput]);
+
   const handleCreate = () => {
     createComment(gag, comment);
     setComment("");

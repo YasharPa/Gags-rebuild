@@ -55,17 +55,18 @@ function Provider({ children }) {
     setGags(updatedGags);
   };
 
-  const deleteGagById = async (id) => {
-    await axios.delete(`http://localhost:3001/gags/${id}`);
-    const updatedGags = gags.filter((gag) => gag.id !== id);
-    setGags(updatedGags);
-  };
   const createComment = async (lastGag, newCommnet) => {
     const response = await axios.put(
       `http://localhost:3001/gags/${lastGag.id}`,
       {
         ...lastGag,
-        comments: [...lastGag.comments, newCommnet],
+        comments: [
+          ...lastGag.comments,
+          {
+            id: lastGag.id + 1,
+            text: newCommnet,
+          },
+        ],
       }
     );
     const updateGags = gags.map((gag) => {
@@ -78,10 +79,18 @@ function Provider({ children }) {
     setGags(updateGags);
   };
 
-  const deleteComment = async (id) => {
+  const deleteGagById = async (id) => {
     await axios.delete(`http://localhost:3001/gags/${id}`);
-    const updatedGags = gags.filter((gag) => id !== gag.id);
+    const updatedGags = gags.filter((gag) => gag.id !== id);
     setGags(updatedGags);
+  };
+
+  const deleteComment = async (lastGag, commentId) => {
+    const response = await axios.delete(
+      `http://localhost:3001/gags/${lastGag.id}`
+    );
+
+    console.log(response);
   };
 
   const valuesToShare = {

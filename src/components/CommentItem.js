@@ -1,15 +1,26 @@
 import { GoTrash } from "react-icons/go";
+import { useContext } from "react";
+import GagsContext from "../context/gags";
 
 function CommentItem({ gag }) {
   const { comments } = gag;
+  const { deleteComment } = useContext(GagsContext);
+  const handleDeleteComment = (gag, id) => {
+    console.log(id);
+    deleteComment(gag, id);
+  };
 
-  const rendredComments = comments.map((comment, index) => {
+  const rendredComments = comments.map((comment) => {
     return (
-      <div className="comments-contant" key={gag.id + index}>
+      <div className="comments-contant" key={comment.id}>
         <div className="comment-trash">
-          <GoTrash />
+          <GoTrash
+            onClick={() => {
+              handleDeleteComment(gag, comment.id);
+            }}
+          />
         </div>
-        <div className="comment-text">{comment}</div>
+        <div className="comment-text">{comment.text}</div>
       </div>
     );
   });

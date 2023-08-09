@@ -1,19 +1,14 @@
-import { useContext, useEffect } from "react";
-import GagsContext from "./context/gags";
+import { useEffect } from "react";
 import GagItemCreate from "./components/GagItemCreate";
 import GagList from "./components/GagList";
+import { useFetchGagsQuery } from "./store";
 
 function App() {
-  const { fetchGags } = useContext(GagsContext);
-  useEffect(() => {
-    fetchGags();
-  }, [fetchGags]);
-
   return (
     <div className="app">
       <div className="navbar">
         <h1>Gag List</h1>
-        <GagItemCreate />
+        {/* <GagItemCreate /> */}
       </div>
       <GagList />
     </div>

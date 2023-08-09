@@ -6,12 +6,10 @@ import Skeleton from "./Skeleton";
 import CommentItemCreate from "./CommentItemCreate";
 
 function GagListItem({ gag }) {
-  const { deleteGagById, addLikeToGagById } = useContext(GagsContext);
   const [showEdit, setShowEdit] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const [showAddCoomment, setShowAddCoomment] = useState(false);
   const handleDeleteGag = () => {
-    deleteGagById(gag.id);
+    // deleteGagById(gag.id);
   };
 
   const handleEditGag = () => {
@@ -23,16 +21,12 @@ function GagListItem({ gag }) {
   };
 
   const handleAddLike = () => {
-    addLikeToGagById(gag, gag.likes);
+    // addLikeToGagById(gag, gag.likes);
   };
 
   const handleAddComment = () => {
     setShowAddCoomment(!showAddCoomment);
   };
-
-  useEffect(() => {
-    setTimeout(() => setIsLoading(false), 2000);
-  }, [gag]);
   let comment = "";
   let contant = (
     <>
@@ -65,24 +59,19 @@ function GagListItem({ gag }) {
           }}
         />
       </label>
-
-      {isLoading ? (
-        <Skeleton times={3} className="active-skeleton" />
-      ) : (
-        <div>
-          <div className="gag-contant">{contant}</div>
-          <label className="reaction-bar">
-            <span>{gag.likes}</span>
-            <GoThumbsup onClick={handleAddLike} />
-            <GoComment
-              onClick={() => {
-                handleAddComment();
-              }}
-            />
-          </label>
-          {comment}
-        </div>
-      )}
+      <div>
+        <div className="gag-contant">{contant}</div>
+        <label className="reaction-bar">
+          <span>{gag.likes}</span>
+          <GoThumbsup onClick={handleAddLike} />
+          <GoComment
+            onClick={() => {
+              handleAddComment();
+            }}
+          />
+        </label>
+        {comment}
+      </div>
     </div>
   );
 }

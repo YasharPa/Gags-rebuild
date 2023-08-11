@@ -1,14 +1,14 @@
-import { useState, useContext, useRef, useEffect } from "react";
-import GagsContext from "../context/gags";
+import { useState, useRef, useEffect } from "react";
 import Button from "./Button";
 import Modal from "./Modal";
+import { useAddGagMutation } from "../store";
 
 function GagItemCreate() {
-  const { createGag } = useContext(GagsContext);
   const [contant, setContant] = useState("");
   const [url, setUrl] = useState("");
   const [showModal, setShowModal] = useState(false);
   const nameInputRef = useRef();
+  const [addGag] = useAddGagMutation();
 
   const handleContantChange = (event) => {
     setContant(event.target.value);
@@ -24,10 +24,14 @@ function GagItemCreate() {
   const handleClose = () => {
     setShowModal(false);
   };
+
   const handleCreate = () => {
-    createGag(contant, url);
-    setContant("");
-    setUrl("");
+    const gagProp = { contant, url: url };
+    addGag(gagProp).then(() => {
+      console.log(gagProp.url);
+      setContant("");
+      setUrl("");
+    });
   };
 
   useEffect(() => {

@@ -9,10 +9,38 @@ const pause = (duration) => {
 
 const gagsApi = createApi({
   reducerPath: "gags",
-  baseQuery: fetchBaseQuery({ baseUrl: `http://127.0.0.1:3001` }),
+
+  baseQuery: fetchBaseQuery({
+    baseUrl: `http://127.0.0.1:3001`,
+    fetchFn: async (...args) => {
+      await pause(2000);
+      return fetch(...args);
+    },
+  }),
   endpoints(builder) {
     return {
+      addGag: builder.mutation({
+        invalidatesTags: (result, error, gag) => {
+          return [{ type: "Gag", id: gag.id }];
+        },
+        query: (gagProp) => {
+          console.log(gagProp);
+          return {
+            url: `/gags`,
+            method: "POST",
+            body: {
+              contant: gagProp.contant,
+              url: gagProp.url,
+              likes: 0,
+            },
+          };
+        },
+      }),
+
       removeGag: builder.mutation({
+        invalidatesTags: (result, error, gag) => {
+          return [{ type: "Gag", id: gag.id }];
+        },
         query: (gag) => {
           return {
             url: `/gags/${gag.id}`,
@@ -22,6 +50,12 @@ const gagsApi = createApi({
       }),
 
       fetchGags: builder.query({
+        providesTags: (result, error) => {
+          const tags = result.map((gag) => {
+            return { type: "Gag", id: gag.id };
+          });
+          return tags;
+        },
         query: () => {
           return {
             url: "/gags",
@@ -33,5 +67,6 @@ const gagsApi = createApi({
   },
 });
 
-export const { useFetchGagsQuery, useRemoveGagMutation } = gagsApi;
+export const { useFetchGagsQuery, useRemoveGagMutation, useAddGagMutation } =
+  gagsApi;
 export { gagsApi };

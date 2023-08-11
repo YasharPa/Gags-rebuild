@@ -13,4 +13,4 @@ export const store = configureStore({
 
 setupListeners(store.dispatch);
 
-export { useFetchGagsQuery } from "./apis/gagsApi";
+export { useFetchGagsQuery, useRemoveGagMutation } from "./apis/gagsApi";

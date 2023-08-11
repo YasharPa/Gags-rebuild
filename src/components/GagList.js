@@ -42,20 +42,24 @@ function GagList() {
   }
 
   // const currentGags = rendredGags.slice(indexOfFirstGag, indexOfLastGag);
-  return <div>{rendredGags}</div>;
+  return (
+    <div className="gag-list">
+      {rendredGags}
+      <div className="pagination">
+        <Button primary rounded>
+          Prev
+        </Button>
+        {/* {currentPage} */}
+        <Button primary rounded>
+          Next
+        </Button>
+      </div>
+    </div>
+  );
   // return (
   //   <div className="gag-list">
   //     {/* {currentGags} */}
-  //     <div className="pagination">
-  //       <Button primary rounded onClick={handlePrevPage}>
-  //         Prev
-  //       </Button>
-  //       {/* {currentPage} */}
-  //       <Button primary rounded onClick={handleNextPage}>
-  //         Next
-  //       </Button>
-  //     </div>
-  //   </div>
+  //    //   </div>
   // );
 }
 

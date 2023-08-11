@@ -1,15 +1,17 @@
 import { GoTrash, GoPencil, GoThumbsup, GoComment } from "react-icons/go";
-import { useContext, useState, useEffect } from "react";
+import { useState } from "react";
 import GagItemEdit from "./GagItemEdit";
-import GagsContext from "../context/gags";
-import Skeleton from "./Skeleton";
 import CommentItemCreate from "./CommentItemCreate";
+import { useRemoveGagMutation } from "../store/apis/gagsApi";
 
 function GagListItem({ gag }) {
+  const [removeGag, results] = useRemoveGagMutation();
   const [showEdit, setShowEdit] = useState(false);
   const [showAddCoomment, setShowAddCoomment] = useState(false);
   const handleDeleteGag = () => {
-    // deleteGagById(gag.id);
+    console.log(gag.id);
+    removeGag(gag);
+    console.log(results);
   };
 
   const handleEditGag = () => {

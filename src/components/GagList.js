@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useFetchGagsQuery } from "../store";
 import GagListItem from "./GagListItem";
 import Button from "./Button";
@@ -39,7 +39,7 @@ function GagList() {
       return (
         <div key={gag.id}>
           <GagListItem gag={gag} />
-          {/* <CommentItem gag={gag} /> */}
+          <CommentItem gag={gag} />
         </div>
       );
     });

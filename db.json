@@ -1,14 +1,14 @@
 {
   "gags": [
     {
-      "likes": 14,
+      "likes": 15,
       "id": 131087935
     },
     {
       "id": 124822590,
       "contant": "Left Exit 12 Off Ramp",
       "url": "https://i.imgflip.com/22bdq6.jpg",
-      "likes": 3
+      "likes": 4
     },
     {
       "id": 222403160,
@@ -17,19 +17,19 @@
       "likes": 1
     },
     {
-      "id": "247375501",
+      "id": 247375501,
       "contant": "Buff Doge vs. Cheems",
       "url": "https://i.imgflip.com/43a45p.png",
       "likes": 0
     },
     {
-      "id": "129242436",
+      "id": 129242436,
       "contant": "Change My Mind",
       "url": "https://i.imgflip.com/24y43o.jpg",
       "likes": 0
     },
     {
-      "id": "80707627",
+      "id": 80707627,
       "contant": "Sad Pablo Escobar",
       "url": "https://i.imgflip.com/1c1uej.jpg",
       "likes": 0
@@ -119,5 +119,11 @@
       "id": "0UWDI0h"
     }
   ],
-  "comments": []
+  "comments": [
+    {
+      "gagId": 131087935,
+      "text": "asdasdadsa YASahar",
+      "id": 1
+    }
+  ]
 }

@@ -8,7 +8,9 @@ function App() {
         <h1>Gag List</h1>
         <GagItemCreate />
       </div>
-      <GagList />
+      <div className="gag-list">
+        <GagList />
+      </div>
     </div>
   );
 }

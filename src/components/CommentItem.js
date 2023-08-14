@@ -29,7 +29,7 @@ function CommentItem({ gag }) {
   );
   return (
     <div className="gag-comments">
-      <div className="comments-title">Comments:</div>
+      <div className="commexxnts-title">Comments:</div>
       <div>
         {comments.length === 0 ? withoutCommentMesseage : rendredComments}
       </div>

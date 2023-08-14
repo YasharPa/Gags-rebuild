@@ -6,18 +6,7 @@ body {
   padding: 0;
   background-color: #d8d3d375;
 }
-.gag-item {
-  display: flex;
-  flex-direction: column;
-  width: 700px;
-  height: auto;
-  border-radius: 8px;
-  box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  overflow: hidden;
-  margin: 10px;
-  margin-bottom: 4px;
-}
+
 .icon {
   display: flex;
   justify-content: flex-end;
@@ -164,14 +153,34 @@ body {
 
   background: linear-gradient(to right, #e5e7eb, #ffffff, #e5e7eb);
 }
+.gag-item {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  overflow: hidden;
+  margin: 10px;
+  margin-bottom: 4px;
+}
 
 .gag-list {
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 700px;
+  height: auto;
 }
 
 .active-skeleton {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   height: 10px;
   width: 100%;
 }
@@ -272,4 +281,10 @@ body {
 
 .comment-trash {
   margin-left: 97%;
+}
+
+.app {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
 }

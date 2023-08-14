@@ -12,14 +12,20 @@ function Provider({ children }) {
   }, []);
 
   const createGag = async (contant, url) => {
-    const response = await axios.post("http://localhost:3001/gags", {
-      contant,
-      url,
-      likes: 0,
-    });
-    if (contant !== "" || url !== "") {
-      const updatedGags = [...gags, response.data];
-      setGags(updatedGags);
+    try {
+      if (contant !== "" || url !== "") {
+        const response = await axios.post("http://localhost:3001/gags", {
+          contant,
+          url,
+          likes: 0,
+        });
+        if (contant !== "" || url !== "") {
+          const updatedGags = [...gags, response.data];
+          setGags(updatedGags);
+        }
+      }
+    } catch (error) {
+      throw new Error(`"An error occurred: ${error.message}`);
     }
   };
   const addLikeToGagById = async (lastGag, updatedLikes) => {

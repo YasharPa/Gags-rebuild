@@ -2,12 +2,17 @@ import { GoTrash, GoPencil, GoThumbsup, GoComment } from "react-icons/go";
 import { useState } from "react";
 import GagItemEdit from "./GagItemEdit";
 import CommentItemCreate from "./CommentItemCreate";
-import { useRemoveGagMutation } from "../store/apis/gagsApi";
+import {
+  useRemoveGagMutation,
+  useAddLikeByIdMutation,
+} from "../store/apis/gagsApi";
 
 function GagListItem({ gag }) {
   const [removeGag, results] = useRemoveGagMutation();
   const [showEdit, setShowEdit] = useState(false);
   const [showAddCoomment, setShowAddCoomment] = useState(false);
+  const [addLikeById] = useAddLikeByIdMutation();
+
   const handleDeleteGag = () => {
     console.log(gag.id);
     removeGag(gag);
@@ -23,7 +28,7 @@ function GagListItem({ gag }) {
   };
 
   const handleAddLike = () => {
-    // addLikeToGagById(gag, gag.likes);
+    addLikeById(gag);
   };
 
   const handleAddComment = () => {

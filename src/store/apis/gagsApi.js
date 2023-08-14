@@ -13,7 +13,7 @@ const gagsApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: `http://127.0.0.1:3001`,
     fetchFn: async (...args) => {
-      await pause(2000);
+      await pause(500);
       return fetch(...args);
     },
   }),
@@ -24,7 +24,6 @@ const gagsApi = createApi({
           return [{ type: "Gag", id: gag.id }];
         },
         query: (gagProp) => {
-          console.log(gagProp);
           return {
             url: `/gags`,
             method: "POST",
@@ -34,6 +33,27 @@ const gagsApi = createApi({
               likes: 0,
             },
           };
+        },
+
+        onError: (error) => {
+          throw new Error(`"An error occurred: ${error}`);
+        },
+      }),
+
+      addLikeById: builder.mutation({
+        invalidatesTags: (result, error, gag) => {
+          return [{ type: "Gag", id: gag.id }];
+        },
+        query: (gag) => {
+          console.log(gag);
+          return {
+            url: `/gags/${gag.id}`,
+            method: "PUT",
+            body: { ...gag, likes: gag.likes + 1 },
+          };
+        },
+        onError: (error) => {
+          throw new Error(`"An error occurred: ${error}`);
         },
       }),
 
@@ -67,6 +87,10 @@ const gagsApi = createApi({
   },
 });
 
-export const { useFetchGagsQuery, useRemoveGagMutation, useAddGagMutation } =
-  gagsApi;
+export const {
+  useFetchGagsQuery,
+  useRemoveGagMutation,
+  useAddGagMutation,
+  useAddLikeByIdMutation,
+} = gagsApi;
 export { gagsApi };

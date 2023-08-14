@@ -172,6 +172,7 @@ body {
   flex-direction: column;
   width: 700px;
   height: auto;
+  margin: 0 auto;
 }
 
 .active-skeleton {

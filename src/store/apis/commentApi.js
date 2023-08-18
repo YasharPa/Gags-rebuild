@@ -8,13 +8,32 @@ const commentsApi = createApi({
   endpoints(builder) {
     return {
       fetchComments: builder.query({
+        providesTags: (result, error, gag) => {
+          const tags = result.map((photo) => {
+            return { type: "Comment", id: gag.id };
+          });
+          tags.push({ type: "GagComment", id: gag.id });
+          return tags;
+        },
         query: (gag) => {
-          return { url: "/comments", params: { gagId: gag.id }, method: "GET" };
+          return {
+            url: "/comments",
+            params: { gagId: gag.id },
+            method: "GET",
+          };
+        },
+      }),
+      createComment: builder.mutation({
+        query: (gag) => {
+          return {
+            url: "/comments",
+            method: "POST",
+          };
         },
       }),
     };
   },
 });
 
-export const { useFetchCommentsQuery } = commentsApi;
+export const { useFetchCommentsQuery, useCreateCommentMutation } = commentsApi;
 export { commentsApi };

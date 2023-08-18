@@ -45,7 +45,6 @@ const gagsApi = createApi({
           return [{ type: "Gag", id: gag.id }];
         },
         query: (gag) => {
-          console.log(gag);
           return {
             url: `/gags/${gag.id}`,
             method: "PUT",

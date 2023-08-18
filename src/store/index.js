@@ -23,4 +23,7 @@ export {
   useAddGagMutation,
 } from "./apis/gagsApi";
 
-export { useFetchCommentsQuery } from "./apis/commentApi";
+export {
+  useFetchCommentsQuery,
+  useCreateCommentMutation,
+} from "./apis/commentApi";

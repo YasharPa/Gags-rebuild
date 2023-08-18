@@ -1,12 +1,14 @@
 import { GoTrash } from "react-icons/go";
-import { useFetchCommentsQuery } from "../store";
+import { useDeleteCommentMutation, useFetchCommentsQuery } from "../store";
 import Skeleton from "./Skeleton";
 
 function CommentItem({ gag }) {
   const { data, isFetching, error } = useFetchCommentsQuery(gag);
-  // const { deleteComment } = useContext(GagsContext);
-  const handleDeleteComment = (gag, id) => {
+  const [deleteComment] = useDeleteCommentMutation();
+
+  const handleDeleteComment = (id) => {
     console.log(id);
+    deleteComment(id);
     // deleteComment(gag, id);
   };
 
@@ -21,7 +23,7 @@ function CommentItem({ gag }) {
           <div className="comment-trash">
             <GoTrash
               onClick={() => {
-                handleDeleteComment(gag, comment.id);
+                handleDeleteComment(comment.id);
               }}
             />
           </div>

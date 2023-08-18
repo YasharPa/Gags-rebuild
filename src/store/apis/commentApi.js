@@ -9,8 +9,8 @@ const commentsApi = createApi({
     return {
       fetchComments: builder.query({
         providesTags: (result, error, gag) => {
-          const tags = result.map((photo) => {
-            return { type: "Comment", id: gag.id };
+          const tags = result.map((comment) => {
+            return { type: "Comment", id: comment.id };
           });
           tags.push({ type: "GagComment", id: gag.id });
           return tags;
@@ -25,7 +25,7 @@ const commentsApi = createApi({
       }),
       createComment: builder.mutation({
         invalidatesTags: (result, error, gag) => {
-          return [{ type: "Comment", id: gag.id }];
+          return [{ type: "GagComment", id: gag.id }];
         },
         query: ({ gag, newComment }) => {
           return {
@@ -38,9 +38,21 @@ const commentsApi = createApi({
           };
         },
       }),
+      deleteComment: builder.mutation({
+        invalidatesTags: (result, error, gag) => {
+          return [{ type: "Comment", id: gag.id }];
+        },
+        query: (gagid) => {
+          return { url: `/comments/${gagid}`, method: "DELETE" };
+        },
+      }),
     };
   },
 });
 
-export const { useFetchCommentsQuery, useCreateCommentMutation } = commentsApi;
+export const {
+  useFetchCommentsQuery,
+  useCreateCommentMutation,
+  useDeleteCommentMutation,
+} = commentsApi;
 export { commentsApi };

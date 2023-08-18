@@ -1,5 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
-import GagsContext from "../context/gags";
+import { useEffect, useRef, useState } from "react";
 import Button from "./Button";
 import { useCreateCommentMutation } from "../store";
 

@@ -26,4 +26,5 @@ export {
 export {
   useFetchCommentsQuery,
   useCreateCommentMutation,
+  useDeleteCommentMutation,
 } from "./apis/commentApi";

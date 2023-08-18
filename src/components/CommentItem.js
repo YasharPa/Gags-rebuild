@@ -38,8 +38,8 @@ function CommentItem({ gag }) {
   );
   return (
     <div className="gag-comments">
-      <div className="commexxnts-title">Comments:</div>
-      <div>{content}</div>
+      <div className="comments-title">Comments:</div>
+      <div>{data?.length === 0 ? withoutCommentMesseage : content}</div>
     </div>
   );
 }

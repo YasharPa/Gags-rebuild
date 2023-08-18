@@ -4,14 +4,14 @@ import Modal from "./Modal";
 import { useAddGagMutation } from "../store";
 
 function GagItemCreate() {
-  const [contant, setContant] = useState("");
+  const [content, setContent] = useState("");
   const [url, setUrl] = useState("");
   const [showModal, setShowModal] = useState(false);
   const nameInputRef = useRef();
   const [addGag] = useAddGagMutation();
 
-  const handleContantChange = (event) => {
-    setContant(event.target.value);
+  const handleContentChange = (event) => {
+    setContent(event.target.value);
   };
   const handleUrlChange = (event) => {
     setUrl(event.target.value);
@@ -26,10 +26,10 @@ function GagItemCreate() {
   };
 
   const handleCreate = () => {
-    const gagProp = { contant, url: url };
+    const gagProp = { content, url: url };
     addGag(gagProp).then(() => {
       console.log(gagProp.url);
-      setContant("");
+      setContent("");
       setUrl("");
     });
   };
@@ -61,8 +61,8 @@ function GagItemCreate() {
           Name:{" "}
           <input
             ref={nameInputRef}
-            value={contant}
-            onChange={handleContantChange}
+            value={content}
+            onChange={handleContentChange}
           />
         </label>
         <label>

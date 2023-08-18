@@ -42,8 +42,8 @@ const commentsApi = createApi({
         invalidatesTags: (result, error, gag) => {
           return [{ type: "Comment", id: gag.id }];
         },
-        query: (gagid) => {
-          return { url: `/comments/${gagid}`, method: "DELETE" };
+        query: (gagId) => {
+          return { url: `/comments/${gagId}`, method: "DELETE" };
         },
       }),
     };

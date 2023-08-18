@@ -35,17 +35,17 @@ function GagListItem({ gag }) {
     setShowAddCoomment(!showAddCoomment);
   };
   let comment = "";
-  let contant = (
+  let content = (
     <>
       <div>
-        <h3>{gag.contant}</h3>
+        <h3>{gag.content}</h3>
       </div>
       <img alt="Gags" src={gag.url} className="gag-image" />
     </>
   );
 
   if (showEdit) {
-    contant = <GagItemEdit onSubmit={handleSubmit} gag={gag} />;
+    content = <GagItemEdit onSubmit={handleSubmit} gag={gag} />;
   }
   if (showAddCoomment) {
     comment = <CommentItemCreate gag={gag} />;
@@ -67,7 +67,7 @@ function GagListItem({ gag }) {
         />
       </label>
       <div>
-        <div className="gag-contant">{contant}</div>
+        <div className="gag-content">{content}</div>
         <label className="reaction-bar">
           <span>{gag.likes}</span>
           <GoThumbsup onClick={handleAddLike} />

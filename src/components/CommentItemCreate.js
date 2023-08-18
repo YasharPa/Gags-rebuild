@@ -28,8 +28,6 @@ function CommentItemCreate({ gag }) {
     setShowInput(false);
   };
 
-  let contant;
-
   if (showInput) {
     return (
       <div className="comment-create">

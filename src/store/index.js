@@ -21,6 +21,7 @@ export {
   useFetchGagsQuery,
   useRemoveGagMutation,
   useAddGagMutation,
+  useEditGagMutation,
 } from "./apis/gagsApi";
 
 export {

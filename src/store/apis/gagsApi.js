@@ -19,6 +19,19 @@ const gagsApi = createApi({
   }),
   endpoints(builder) {
     return {
+      editGag: builder.mutation({
+        invalidatesTags: (result, error, gag) => {
+          return [{ type: "Gag", id: gag.id }];
+        },
+        query: ({ gag, content }) => {
+          return {
+            url: `/gags/${gag.id}`,
+            method: "PUT",
+            body: { ...gag, content: content },
+          };
+        },
+      }),
+
       addGag: builder.mutation({
         invalidatesTags: (result, error, gag) => {
           return [{ type: "Gag", id: gag.id }];
@@ -28,7 +41,7 @@ const gagsApi = createApi({
             url: `/gags`,
             method: "POST",
             body: {
-              contant: gagProp.contant,
+              content: gagProp.content,
               url: gagProp.url,
               likes: 0,
             },
@@ -91,5 +104,6 @@ export const {
   useRemoveGagMutation,
   useAddGagMutation,
   useAddLikeByIdMutation,
+  useEditGagMutation,
 } = gagsApi;
 export { gagsApi };

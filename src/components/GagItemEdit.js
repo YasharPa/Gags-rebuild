@@ -1,29 +1,32 @@
-import { useState, useContext } from "react";
-import GagsContext from "../context/gags";
+import { useEffect, useState } from "react";
 import Button from "./Button";
+import { useEditGagMutation } from "../store";
 
 function GagItemEdit({ gag, onSubmit }) {
-  const [newContant, setNewContant] = useState(gag.contant);
-  const { editGagById } = useContext(GagsContext);
+  const [newContent, setNewContent] = useState(gag.content);
+  const [editGag] = useEditGagMutation();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    const params = { gag, content: newContent };
+    await editGag(params);
     onSubmit();
-    editGagById(gag, newContant);
+    console.log(gag);
   };
 
-  const handleChangeContant = (event) => {
-    setNewContant(event.target.value);
+  const handleChangeContent = (event) => {
+    setNewContent(event.target.value);
   };
+  useEffect(() => {}, []);
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>{gag.contant}</label>
+      <label>{gag.content}</label>
       <input
         className="input"
         placeholder="what is your thoughts?"
-        value={newContant}
-        onChange={handleChangeContant}
+        value={newContent}
+        onChange={handleChangeContent}
       ></input>
       <Button primary rounded>
         Accept

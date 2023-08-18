@@ -13,7 +13,7 @@ body {
   cursor: pointer;
 }
 
-.gag-contant {
+.gag-content {
   display: grid;
   align-items: center;
   padding: 14px;
@@ -235,7 +235,7 @@ body {
   border-bottom: 2px solid #d1d5db;
 }
 
-.comments-contant {
+.comments-content {
   display: flex;
   flex-direction: column;
   padding: 10px;

@@ -1,9 +1,11 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import GagsContext from "../context/gags";
 import Button from "./Button";
+import { useCreateCommentMutation } from "../store";
 
 function CommentItemCreate({ gag }) {
-  const { createComment } = useContext(GagsContext);
+  // const { createComment } = useContext(GagsContext);
+  const [createComment] = useCreateCommentMutation();
   const [comment, setComment] = useState("");
   const [showInput, setShowInput] = useState(true);
   const inputRef = useRef();
@@ -19,7 +21,11 @@ function CommentItemCreate({ gag }) {
   }, [showInput]);
 
   const handleCreate = () => {
-    createComment(gag, comment);
+    const params = {
+      gag,
+      newComment: comment,
+    };
+    createComment(params);
     setComment("");
   };
 

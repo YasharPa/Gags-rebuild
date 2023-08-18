@@ -9,9 +9,9 @@ import {
 
 function GagListItem({ gag }) {
   const [removeGag, results] = useRemoveGagMutation();
+  const [addLikeById] = useAddLikeByIdMutation();
   const [showEdit, setShowEdit] = useState(false);
   const [showAddCoomment, setShowAddCoomment] = useState(false);
-  const [addLikeById] = useAddLikeByIdMutation();
 
   const handleDeleteGag = () => {
     console.log(gag.id);

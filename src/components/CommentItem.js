@@ -25,7 +25,7 @@ function CommentItem({ gag }) {
               }}
             />
           </div>
-          <div className="comment-text">{comment.text}</div>
+          <div className="comment-text">{comment.commentText}</div>
         </div>
       );
     });

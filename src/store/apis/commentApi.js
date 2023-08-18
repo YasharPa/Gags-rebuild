@@ -24,10 +24,17 @@ const commentsApi = createApi({
         },
       }),
       createComment: builder.mutation({
-        query: (gag) => {
+        invalidatesTags: (result, error, gag) => {
+          return [{ type: "Comment", id: gag.id }];
+        },
+        query: ({ gag, newComment }) => {
           return {
             url: "/comments",
             method: "POST",
+            body: {
+              gagId: gag.id,
+              commentText: newComment,
+            },
           };
         },
       }),

@@ -1,10 +1,6 @@
 {
   "gags": [
     {
-      "likes": 17,
-      "id": 131087935
-    },
-    {
       "id": 124822590,
       "contant": "Left Exit 12 Off Ramp",
       "url": "https://i.imgflip.com/22bdq6.jpg",
@@ -121,9 +117,29 @@
   ],
   "comments": [
     {
-      "gagId": 131087935,
-      "text": "asdasdadsa YASahar",
-      "id": 1
+      "gagId": 124822590,
+      "commentText": "asdads",
+      "id": 2
+    },
+    {
+      "gagId": 247375501,
+      "commentText": "best one!",
+      "id": 3
+    },
+    {
+      "gagId": 124822590,
+      "commentText": "asdasdaaaa",
+      "id": 4
+    },
+    {
+      "gagId": 124822590,
+      "commentText": "asdasd 1231",
+      "id": 5
+    },
+    {
+      "gagId": 124822590,
+      "commentText": "asdasd",
+      "id": 6
     }
   ]
 }

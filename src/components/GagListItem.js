@@ -67,7 +67,7 @@ function GagListItem({ gag }) {
         />
       </label>
       <div>
-        <div className="gag-content">{content}</div>
+        <div className="gag-contant">{content}</div>
         <label className="reaction-bar">
           <span>{gag.likes}</span>
           <GoThumbsup onClick={handleAddLike} />

@@ -13,7 +13,7 @@ body {
   cursor: pointer;
 }
 
-.gag-content {
+.gag-contant {
   display: grid;
   align-items: center;
   padding: 14px;
@@ -114,6 +114,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 10px;
+  align-items: flex-end;
 }
 
 .gag-image {
@@ -235,7 +236,7 @@ body {
   border-bottom: 2px solid #d1d5db;
 }
 
-.comments-content {
+.comments-contant {
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -288,4 +289,11 @@ body {
   margin-left: auto;
   margin-right: auto;
   max-width: 100%;
+}
+
+.g-logo {
+  display: flex;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 10px;
 }

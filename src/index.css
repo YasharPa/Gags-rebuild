@@ -7,6 +7,9 @@ body {
   background-color: #d8d3d375;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 .icon {
   display: flex;
   justify-content: flex-end;
@@ -109,14 +112,26 @@ body {
   display: flex;
   justify-content: flex-end;
 }
-
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 0 2rem;
   align-items: flex-end;
+  gap: 2rem;
 }
-
+.navbar ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  gap: 1rem;
+}
+.navbar a {
+  text-decoration: none;
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
 .gag-image {
   height: 350px;
   width: 300px;
@@ -296,4 +311,8 @@ body {
   height: 4rem;
   width: 4rem;
   border-radius: 10px;
+}
+
+.details {
+  margin: 0px;
 }

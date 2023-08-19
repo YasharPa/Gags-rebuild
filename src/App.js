@@ -8,6 +8,7 @@ function App() {
       <div className="gag-list">
         <GagList />
       </div>
+      <div id="contact">hey you reached the footer</div>
     </div>
   );
 }

@@ -4,9 +4,7 @@ import GagListItem from "./GagListItem";
 import Button from "./Button";
 import CommentItem from "./CommentItem";
 import Skeleton from "./Skeleton";
-function GagList() {
-  const { data, isLoading, error } = useFetchGagsQuery();
-
+function GagList({ data }) {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
   let totalPages = 1;
@@ -28,23 +26,22 @@ function GagList() {
   let gagsContent;
   let currentGags;
 
-  if (isLoading) {
-    return (gagsContent = <Skeleton times={3} className="active-skeleton" />);
-  } else if (error) {
-    return (gagsContent = <div>Error loading gags..</div>);
-  } else {
-    totalPages = Math.ceil(data.length / itemsPerPage);
-
-    gagsContent = data.map((gag) => {
-      return (
-        <div key={gag.id}>
-          <GagListItem gag={gag} />
-          <CommentItem gag={gag} />
-        </div>
-      );
-    });
-    currentGags = gagsContent.slice(indexOfFirstGag, indexOfLastGag);
-  }
+  // if (isLoading) {
+  //   return (gagsContent = <Skeleton times={3} className="active-skeleton" />);
+  // } else if (error) {
+  //   return (gagsContent = <div>Error loading gags..</div>);
+  // } else {
+  const filteredGagsArray = Array.isArray(data) ? data : [];
+  totalPages = Math.ceil(filteredGagsArray.length / itemsPerPage);
+  gagsContent = filteredGagsArray.map((gag) => {
+    return (
+      <div key={gag.id}>
+        <GagListItem gag={gag} />
+        <CommentItem gag={gag} />
+      </div>
+    );
+  });
+  currentGags = gagsContent.slice(indexOfFirstGag, indexOfLastGag);
 
   return (
     <div>

@@ -316,3 +316,10 @@ html {
 .details {
   margin: 0px;
 }
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-left: 5rem;
+  gap: 0.5rem;
+}

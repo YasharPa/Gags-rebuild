@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { useFetchGagsQuery } from "../store";
 import GagListItem from "./GagListItem";
 import Button from "./Button";
 import CommentItem from "./CommentItem";
-import Skeleton from "./Skeleton";
+
 function GagList({ data }) {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
@@ -23,7 +22,6 @@ function GagList({ data }) {
     }
   };
 
-  let gagsContent;
   let currentGags;
 
   // if (isLoading) {
@@ -33,7 +31,7 @@ function GagList({ data }) {
   // } else {
   const filteredGagsArray = Array.isArray(data) ? data : [];
   totalPages = Math.ceil(filteredGagsArray.length / itemsPerPage);
-  gagsContent = filteredGagsArray.map((gag) => {
+  let gagsContent = filteredGagsArray.map((gag) => {
     return (
       <div key={gag.id}>
         <GagListItem gag={gag} />
@@ -46,15 +44,19 @@ function GagList({ data }) {
   return (
     <div>
       <div>{currentGags}</div>
-      <div className="pagination">
-        <Button primary rounded onClick={handlePrevPage}>
-          Prev
-        </Button>
-        {currentPage}
-        <Button primary rounded onClick={handleNextPage}>
-          Next
-        </Button>
-      </div>
+      {totalPages === 0 ? (
+        <></>
+      ) : (
+        <div className="pagination">
+          <Button primary rounded onClick={handlePrevPage}>
+            Prev
+          </Button>
+          {currentPage}
+          <Button primary rounded onClick={handleNextPage}>
+            Next
+          </Button>
+        </div>
+      )}
     </div>
   );
 }

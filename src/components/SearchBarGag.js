@@ -15,9 +15,13 @@ function SearchBarGag({ onSubmit }) {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label>Search Gag</label>
-        <input placeholder="Serch Gag" value={term} onChange={handleChange} />
+      <form className="search-bar" onSubmit={handleSubmit}>
+        <input
+          placeholder="Serch Gag"
+          className="comment-input"
+          value={term}
+          onChange={handleChange}
+        />
         <Button type="submit" secondary rounded>
           Search
         </Button>

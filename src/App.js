@@ -2,9 +2,9 @@ import Navbar from "./components/Navbar";
 import GagList from "./components/GagList";
 import { useFetchGagsQuery } from "./store";
 import { useState, useEffect } from "react";
-
+import Skeleton from "./components/Skeleton";
 function App() {
-  const { data } = useFetchGagsQuery();
+  const { data, isLoading, error } = useFetchGagsQuery();
   const [filteredData, setUpdatedData] = useState(data);
 
   useEffect(() => {
@@ -17,12 +17,16 @@ function App() {
     });
     setUpdatedData(filteredData);
   };
-
+  let gagsContant;
   return (
     <div className="app">
       <Navbar onSubmit={handleSerchGagSubmit} />
       <div className="gag-list">
-        <GagList data={filteredData} />
+        {isLoading ? (
+          <Skeleton className="active-skeleton" times={50} />
+        ) : (
+          <GagList data={filteredData} />
+        )}
       </div>
       <footer id="about"> </footer>
     </div>

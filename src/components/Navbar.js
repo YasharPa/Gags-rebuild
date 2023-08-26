@@ -1,6 +1,6 @@
 import GagItemCreate from "./GagItemCreate";
 import Logo from "../pictures/G-logo.png";
-import SearchGag from "./SearchBarGag";
+import SearchBarGag from "./SearchBarGag";
 
 function Navbar({ onSubmit }) {
   const contantSection = document.getElementById("about");
@@ -18,12 +18,12 @@ function Navbar({ onSubmit }) {
       </div>
       <ul className="details">
         <li>
+          <SearchBarGag onSubmit={onSubmit} />
+        </li>
+        <li>
           <a href="#about" onClick={handleClick}>
             About
           </a>
-        </li>
-        <li>
-          <SearchGag onSubmit={onSubmit} />
         </li>
       </ul>
 

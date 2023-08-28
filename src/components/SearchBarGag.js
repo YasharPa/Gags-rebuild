@@ -6,11 +6,11 @@ function SearchBarGag({ onSubmit }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSubmit(term);
   };
 
   const handleChange = (event) => {
     setTerm(event.target.value);
+    onSubmit(term);
   };
 
   return (
@@ -18,7 +18,7 @@ function SearchBarGag({ onSubmit }) {
       <form className="search-bar" onSubmit={handleSubmit}>
         <input
           placeholder="Serch Gag"
-          className="comment-input"
+          className="search-input"
           value={term}
           onChange={handleChange}
         />

@@ -3,8 +3,10 @@ import GagList from "./components/GagList";
 import { useFetchGagsQuery } from "./store";
 import { useState, useEffect } from "react";
 import Skeleton from "./components/Skeleton";
+import About from "./components/About";
+
 function App() {
-  const { data, isLoading, error } = useFetchGagsQuery();
+  const { data, isLoading } = useFetchGagsQuery();
   const [filteredData, setUpdatedData] = useState(data);
 
   useEffect(() => {
@@ -17,7 +19,7 @@ function App() {
     });
     setUpdatedData(filteredData);
   };
-  let gagsContant;
+
   return (
     <div className="app">
       <Navbar onSubmit={handleSerchGagSubmit} />
@@ -28,7 +30,7 @@ function App() {
           <GagList data={filteredData} />
         )}
       </div>
-      <footer id="about"> </footer>
+      <About id="about"> </About>
     </div>
   );
 }

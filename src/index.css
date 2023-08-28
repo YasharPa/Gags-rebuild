@@ -323,3 +323,22 @@ html {
   margin-left: 5rem;
   gap: 0.5rem;
 }
+
+.search-input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 600px;
+  height: 25px;
+}
+
+#about {
+  background-color: #9db3e086;
+  padding: 20px; /* Add padding for spacing */
+  text-align: center; /* Center-align the content */
+  color: #333; /* Text color */
+  font-size: 16px; /* Adjust font size as needed */
+  border-top: 1px solid #ccc; /* Add a top border for separation */
+}

@@ -2,8 +2,9 @@ import { useState } from "react";
 import GagListItem from "./GagListItem";
 import Button from "./Button";
 import CommentItem from "./CommentItem";
+import Skeleton from "./Skeleton";
 
-function GagList({ data }) {
+function GagList({ data, isLoading }) {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
   let totalPages = 1;
@@ -28,7 +29,8 @@ function GagList({ data }) {
   //   return (gagsContent = <Skeleton times={3} className="active-skeleton" />);
   // } else if (error) {
   //   return (gagsContent = <div>Error loading gags..</div>);
-  // } else {
+  // } else {}
+
   const filteredGagsArray = Array.isArray(data) ? data : [];
   totalPages = Math.ceil(filteredGagsArray.length / itemsPerPage);
   let gagsContent = filteredGagsArray.map((gag) => {
@@ -39,11 +41,15 @@ function GagList({ data }) {
       </div>
     );
   });
-  currentGags = gagsContent.slice(indexOfFirstGag, indexOfLastGag);
+  if (isLoading) {
+    currentGags = <Skeleton times={1} className="gag-item active-skeleton" />;
+  } else {
+    currentGags = gagsContent.slice(indexOfFirstGag, indexOfLastGag);
+  }
 
   return (
     <div>
-      <div>{currentGags}</div>
+      {currentGags}
       {totalPages === 0 ? (
         <></>
       ) : (

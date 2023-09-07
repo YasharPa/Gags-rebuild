@@ -24,11 +24,7 @@ function App() {
     <div className="app">
       <Navbar onSubmit={handleSerchGagSubmit} />
       <div className="gag-list">
-        {isLoading ? (
-          <Skeleton className="active-skeleton" times={50} />
-        ) : (
-          <GagList data={filteredData} />
-        )}
+        <GagList data={filteredData} isLoading={isLoading} />
       </div>
       <About id="about"> </About>
     </div>

@@ -9,7 +9,6 @@ function CommentItem({ gag }) {
   const handleDeleteComment = (id) => {
     console.log(id);
     deleteComment(id);
-    // deleteComment(gag, id);
   };
 
   let content;

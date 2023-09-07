@@ -57,18 +57,18 @@ function GagItemCreate() {
     <Modal onClose={handleClose} actionBar={actionBar}>
       <div className="create-modal">
         <h1>Create Gag</h1>
-        <label>
+        <div>
           Name:
           <input
             ref={nameInputRef}
             value={content}
             onChange={handleContentChange}
           />
-        </label>
-        <label>
+        </div>
+        <div>
           Image Link:
           <input value={url} onChange={handleUrlChange} />
-        </label>
+        </div>
       </div>
     </Modal>
   );

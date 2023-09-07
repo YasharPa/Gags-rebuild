@@ -99,6 +99,7 @@ html {
   padding: 10px;
   border-radius: 8px;
   background-color: #fff;
+  z-index: 999;
 }
 
 .modal-children {
@@ -208,8 +209,8 @@ html {
 }
 
 .create-modal {
-  display: flexbox;
-  /* flex-direction:  column; */
+  display: flex;
+  flex-direction: column;
 }
 
 .create-modal label {
@@ -227,6 +228,7 @@ html {
 }
 
 .pagination {
+  padding: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -343,6 +345,7 @@ html {
 }
 
 .contact-info {
+  padding-left: 2rem;
   flex: 1;
 }
 
